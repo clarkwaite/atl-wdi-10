@@ -62,11 +62,38 @@ keep them organized.
 
 > Answer here
 
+    task = {
+      taskItem: grocery list
+      dueDate: 5/2/2017
+      dateCreated: 4/30/2017
+      priority: high
+      completed: strikethrough
+    }
+    projects = {
+      title: honey do list
+      location: home
+      reminders: text
+    }
+
 ### 2. Photo Sharing App
 
 In this app, users can upload photos to their accounts and share them with others. These photos can be grouped into albums.
 
 > Answer here
+
+    photo options = {
+      share: twitter
+      dateTaken: 5/2/2017
+      dateModified: 4/30/2017
+      favorites: yes
+      takenBy: Clark
+    }
+    albums = {
+      albumName: Beach 2017
+      location: Destin, FL
+      numberOfPhotos: 100
+      peopleInAlbum: Clark, Monica, Chris
+    }
 
 ### 3. Home Automation Manager
 
@@ -77,6 +104,20 @@ and down.
 
 > Answer here
 
+    information = {
+      time: 12:00pm
+      temperature: 77 degrees
+      outside temperature: 78 degrees
+      energy use: power-saving
+    }
+    connected devices = {
+      thermostat: Train 1253
+      airConditioner: Train 6657
+      dehumidifier: humidifier 2354
+      floodLights: Halogen 56
+      userProfile: Clark
+    }
+
 ### 4. Sneaker Store
 
 This app will allow customers to browse a list of products (sneakers, in this
@@ -84,6 +125,21 @@ case), add those products to a cart, and save that cart as a past order once the
 purchase is complete.
 
 > Answer here
+
+    shoes = {
+      color: brown
+      style: oxford
+      gender: male
+      make: aldo
+      material: leather
+    }
+    checkout = {
+      promo: 10% off
+      membership: yes
+      cardType: visa
+      tax: 8%
+      shipping: free
+    }
 
 ## Representing Abstractions in Code
 
@@ -140,6 +196,14 @@ var exampleLine = {
 What are some advantages and disadvantages of choosing these representations? Please give at least one example of each.
 
 > Answer here
+
+Stations:
+Advantage - give the users information that they may not have easy access to. You have the ability to let them know what they need to know.
+Disadvantage - many users don't use an app for info, and rather use the internet. The app will need to compete with that.
+
+Rail Line:
+Advantage: Very detailed information with hard to find info such as time of trip, and information about delays, etc.
+Disadvantage: Will need to be kept up to date, or it will lose its effectiveness.
 
 ### 6. Doctor Appointment App
 
@@ -244,6 +308,14 @@ the better choice?
 
 > Answer here
 
+Option one:
+Advantage: Patient information and appt information is first, which is good for the patient experience. More info given.
+Disadvantage: Information is hard to read, and cluttered. Doctor and patient info not listed together which would be nice.
+
+Option two:
+Advantage: Doctor and patient info is listed together. Doctor info is first which is better for the doctor. Easier to read. Good Scrubs references.
+Disadvantage: Less information is presented. The flow isn't great for the patient experience.
+
 ## Tying It Together
 
 ### 7. Tic-Tac-Toe
@@ -255,11 +327,44 @@ a.  What are some possible entities that your application might use to model its
 
   > Answer here
 
+features {
+  playerNames: who is playing
+  resetButton: button that resets the game
+  winLoseCounter: keeps track of wins and losses
+  VsMode: play against a friend or computer
+  }
+style {
+  boardColors: of board and of XO
+  winAlert: what happens when someone wins
+  mouseHover: have a shadow of the X or O appear before clicking
+
+  }
+
 b.  How might those entities be represented in JavaScript code?
 
   > Answer here
+features {
+  playerNames: var playerNames = prompt("Player 1 __", "Player 2 __");
+  resetButton: CSS button
+  winLoseCounter: win/lose array of each player
+  }
+style {
+  boardColors: CSS elements
+  winAlert: alert("Congratulations + ' player1!'")
+  mouseHover: img:hover
+
+
 
 c.  Justify your choices in a) and b). Why these entities? Why these
     representations?
 
   > Answer here
+
+  A. The features of the game are important because they are what separate your game
+  from other games. If these are good then it will be played. Name and reset are essential.
+  Win loss counter will make users play more to with 2/3 or 3/5. Having a computer AI would be
+  great, but I have no idea how to code that.
+
+  B. The style of the game matters so much. If the game looks good then people will
+  want to play it. The mouse over is a nice touch that will dramatically increase
+  the visual appeal. Having a flashing pre-image before clicking may also help visualize strategy.
