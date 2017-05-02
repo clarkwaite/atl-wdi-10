@@ -10,34 +10,65 @@
 // Input: an array of numbers
 // Output: the sum of the numbers that were passed in
 // Edge Case: If the array is empty, return 0
+var arrayOfNumbers = [2, 4, 6, 18, 20, 22]
+
 var sumOfNums = function(numsArray){
-  // Your Code Here
+  var sum = 0;
+  for (var i = 0; i < numsArray.length; i++) {
+    sum += numsArray[i];
+  }
+  return sum;
 };
+sumOfNums(arrayOfNumbers);
 
 // #2
 // Input: an array of numbers
 // Output: an array of the numbers from the first array that are strictly
 //         greater (i.e. greater than but not equal to) than 10
-var numsGreaterThanTen = function(numsArray){
-  // Your Code Here
+function numsGreaterThanTen (numsArray) {
+  var newArayGreaterThanTen = [];
+   for (var i = 0; i < numsArray.length; i++) {
+    if (numsArray[i] > 10) {
+      newArayGreaterThanTen.push(numsArray[i]);
+    }
+  }
+  return newArayGreaterThanTen;
 };
-
+numsGreaterThanTen(arrayOfNumbers)
 // #3
 // Input: an array of numbers
 // Output: `true` if ALL numbers passed in are strictly greater than 10;
 //         `false` otherwise
 // Edge Case: If the input array is empty, the function should return `true`.
 var allGreaterThanTen = function(numsArray){
-  // Your Code Here
-};
+   if (numsArray.length === 0) {
+      return true;
+}
 
+for (var i = 0; i < numsArray.length; i++) {
+    if ((numsArray[i] <= 10)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+};
+allGreaterThanTen(arrayOfNumbers);
+
+var arrayOfWords = ['clark', 'monica', 'sarah']
 // #4
 // Input: an array of words
 // Output: an array of all words from the first array with five or more letters
-var wordsWithAtLeastFiveLetters = function(words){
-  // Your Code Here
+var wordsWithAtLeastFiveLetters = function(words) {
+  var answerArray = [];
+    for (var i = 0; i < words.length; i++) {
+      if (words[i].length >= 5) {
+        answerArray.push(words[i]);
+      }
+    }
+      return answerArray;
 };
-
+wordsWithAtLeastFiveLetters(arrayOfWords);
 // #5
 // Input: an array of words
 // Output: `true` if ALL words start with the letter 'a' (case-insensitive),
