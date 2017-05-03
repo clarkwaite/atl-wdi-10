@@ -75,16 +75,34 @@ wordsWithAtLeastFiveLetters(arrayOfWords);
 //          `false` otherwise
 // Edge Case: If the array is empty, the function should return `true`.
 var allStartingWithA = function(words){
-  // Your Code Here
+   if (words.length === 0) {
+      return true;
+}
+for (var i = 0; i < words.length; i++) {
+    if (words[i].charAt(0).toLowerCase() !== 'a') {
+      return false;
+    } else {
+      return true;
+    }
+  }
 };
+allStartingWithA(arrayOfWords);
 
 // #6
 // Input: an array of words
 // Output: `true` if there are ANY words that start with the letter 'b'
 //          (case-insensitive), `false` otherwise
-var anyStartingWithB = function(words){
-  // Your Code Here
+var arrayOfWords = ['clark', 'monica', 'sarah']
+var anyStartingWithB = function(words) {
+for (var i = 0; i < words.length; i++) {
+    if (words[i].charAt(0).toLowerCase() === 'b') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 };
+anyStartingWithB(arrayOfWords);
 
 // #7
 // Input: a single word and a number (`n`)
@@ -93,24 +111,62 @@ var anyStartingWithB = function(words){
 //    Assume that vowels are 'a', 'e', 'i', 'o', and 'u' (NOT 'y')
 // Edge Case: If `n` is less than zero, return `null`.
 var hasAtLeastNVowels = function(word, n){
-  // Your Code Here
+   if (n < 0) {
+    return null;
+  }
+  var count = 0;
+  for (var i = 0; i < word.length; i++) {
+    if (word.charAt(i).toLowerCase() === 'a' ||
+        word.charAt(i).toLowerCase() === 'e' ||
+        word.charAt(i).toLowerCase() === 'i' ||
+        word.charAt(i).toLowerCase() === 'o' ||
+        word.charAt(i).toLowerCase() === 'u') {
+      count++;
+    }
+  }
+  if (count >= n) {
+    return true;
+  } else {
+    return false;
+  }
 };
+hasAtLeastNVowels('clark', 0);
 
 // #8
 // Input: an array of words
 // Output: an array of words from the original array that have at least two
 //          vowels
 var wordsWithAtLeastTwoVowels = function(words){
-  // Your Code Here
+  // I'll come back to this one
 };
 
 // #9
 // Input: an array of words
 // Output: `true` if ALL words have two or more vowels, `false` otherwise
 // Edge Case: If the array is empty, the function should return `true`.
-var allHaveAtLeastTwoVowels = function(words){
-  // Your Code Here
+
+//I ran out of time - I was about to make this a switch instead
+var arrayOfWords = ['clark', 'monica', 'sarah']
+var anyHaveAtLeastTwoVowels = function(words){
+   if (words.length === 0) {
+      return true;
+  }
+  for (var i = 0; i < words.length; i++) {
+    if (word.charAt(i).toLowerCase() === 'a' ||
+        word.charAt(i).toLowerCase() === 'e' ||
+        word.charAt(i).toLowerCase() === 'i' ||
+        word.charAt(i).toLowerCase() === 'o' ||
+        word.charAt(i).toLowerCase() === 'u') {
+      count++;
+    }
+  }
+  if (count >= n) {
+    return true;
+  } else {
+    return false;
+  }
 };
+hasAtLeastNVowels('clark', 0);
 
 // #10
 // Input: an array of words
