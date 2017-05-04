@@ -22,7 +22,9 @@ window.onload = function() {
   var ring3 = document.querySelector('.ring-3');
 
   body.addEventListener('click', bullseyeGame.miss);
-  ring1.addEventListener('click', bullseyeGame.outerRing)
+  ring1.addEventListener('click', bullseyeGame.middleRing)
+  ring2.addEventListener('click', bullseyeGame.outerRing)
+  ring3.addEventListener('click', bullseyeGame.outerRing)
 }
 
 
@@ -44,8 +46,8 @@ var bullseyeGame = {
     // [ALERT:] needs to be bullseyeGame because this in clickEvents refers to the html element that was clicked
   },
 
-  outerRing: function(event) {
+  middleRing: function(event) {
     event.stopPropagation();
-    alert('outerRing was clicked')
+    alert('middleRing was clicked')
   }
 }
