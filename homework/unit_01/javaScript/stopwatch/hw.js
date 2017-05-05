@@ -18,13 +18,21 @@ const Stopwatch = {
   laps: [],
   // DO NOT EDIT ABOVE THIS LINE
   advanceTenMillisecs: function(){
-    // Your Code Here
+    Stopwatch.millisecs += 10;
+    if (Stopwatch.millisecs > 999) {
+      Stopwatch.secs++, Stopwatch.millisecs = 0;
+    if (Stopwatch.secs > 59) {
+      Stopwatch.mins++, Stopwatch.secs = 0;
+    } 
+   } 
   },
   reset: function(){
     // Your Code Here
   },
   start: function(){
-    // Your Code Here
+    Stopwatch.isRunning = true;
+    Stopwatch.tickClock();
+     
   },
   stop: function(){
     // Your Code Here
@@ -37,7 +45,12 @@ const Stopwatch = {
 /// User Interface ///
 const ViewEngine = {
   updateTimeDisplay: function(mins, secs, millisecs){
-    // Your Code Here
+// It displays the values of minutes, seconds, and (tens of)
+//   milliseconds elapsed in the DOM element with id `time-display`, in
+//   the format `MM:SS:ss` (e.g. `100:01:34`, `05:01:10`), starting with
+//   `00:00:00`.
+//It pads the values of minutes, seconds, and (tens of) milliseconds
+//   with zeros so that the strings are at least two characters long.
   },
   updateLapListDisplay: function(laps){
     // Your Code Here
@@ -52,11 +65,17 @@ const ViewHelpers = {
 /// Top-Level Application Code ///
 const AppController = {
   handleClockTick: function(){
-    // Your Code Here
+    $('#millisecs').html(Stopwatch.millisecs);
+    $('#secs').html(Stopwatch.secs);
+    $('#mins').html(Stopwatch.mins);
+//It retrieves the current time values (mins, secs, millisecs) from `Stopwatch`.
+//It calls `updateTimeDisplay` on `ViewEngine`.
   },
   handleClickStart: function() {
-    // Your Code Here
+    Stopwatch.start(); 
+
   },
+
   handleClickStopReset: function(){
     // Your Code Here
   },
@@ -67,4 +86,7 @@ const AppController = {
 
 window.onload = function(){
   // Attach AppController methods to the DOM as event handlers here.
+  $('#start').on('click', AppController.handleClickStart);
+    $('#lap').on('click', AppController.handleClickLap);
+      $('#stop').on('click', AppController.handleClickStopReset);
 };
