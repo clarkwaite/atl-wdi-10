@@ -35,7 +35,7 @@ const Stopwatch = {
   start: function () {
     if (Stopwatch.isRunning === false) {
       Stopwatch.isRunning = true;
-    Stopwatch.tickClock();
+      Stopwatch.tickClock();
     }
   },
 
@@ -47,8 +47,8 @@ const Stopwatch = {
     var timeDisplayForLapTime = Stopwatch.mins + ':' + Stopwatch.secs + ':' + Stopwatch.millisecs;
     if (Stopwatch.isRunning === true) {
       $('#lap-list').append('<li>' + timeDisplayForLapTime + '</li>');
+    }
   }
- }
 };
 
 /// User Interface ///
@@ -57,16 +57,9 @@ const ViewEngine = {
     $('#millisecs').html(Stopwatch.millisecs);
     $('#secs').html(Stopwatch.secs);
     $('#mins').html(Stopwatch.mins);
-    if (Stopwatch.secs.length < 2) {
-      '0' + Stopwatch.secs;
+    ViewHelpers.zeroFill();
+    {
     }
-
-    // It displays the values of minutes, seconds, and (tens of)
-    //   milliseconds elapsed in the DOM element with id `time-display`, in
-    //   the format `MM:SS:ss` (e.g. `100:01:34`, `05:01:10`), starting with
-    //   `00:00:00`.
-    //It pads the values of minutes, seconds, and (tens of) milliseconds
-    //   with zeros so that the strings are at least two characters long.
   },
   updateLapListDisplay: function (laps) {
     // Your Code Here
@@ -74,11 +67,14 @@ const ViewEngine = {
 };
 const ViewHelpers = {
   zeroFill: function (number, length) {
-    //1.  If `number` has fewer digits than `length`,
-    //  a.  it should return a `number` as a string, padded on the left with
-    //      zeros until its length is equal to `length`
-    //2.  If `number` does not have fewer digits than `length`,
-    //  a.  it should return `number` as a string, unaltered.
+    if (Stopwatch.millisecs.toString().length < 2) {
+    }
+    if (Stopwatch.secs.toString().length < 2) {
+      Stopwatch.secs = '0' + Stopwatch.secs;
+    }
+    if (Stopwatch.mins.toString().length < 2) {
+     Stopwatch.mins = '0' + Stopwatch.mins;
+    }
 
   }
 };
@@ -86,7 +82,7 @@ const ViewHelpers = {
 /// Top-Level Application Code ///
 const AppController = {
   handleClockTick: function () {
-    ViewEngine.updateTimeDisplay(Stopwatch.mins, Stopwatch.secs, Stopwatch.millisecs);
+    ViewEngine.updateTimeDisplay();
 
   },
 
