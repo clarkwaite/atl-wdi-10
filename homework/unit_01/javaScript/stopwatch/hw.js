@@ -4,7 +4,7 @@
 
 /// Data & Core Business Logic ///
 const Stopwatch = {
-  tickClock: function(){
+  tickClock: function () {
     if (Stopwatch.isRunning) {
       setTimeout(Stopwatch.tickClock, 10); // trigger next clock tick
       Stopwatch.advanceTenMillisecs();
@@ -17,76 +17,84 @@ const Stopwatch = {
   millisecs: 0,
   laps: [],
   // DO NOT EDIT ABOVE THIS LINE
-  advanceTenMillisecs: function(){
+  advanceTenMillisecs: function () {
     Stopwatch.millisecs += 10;
     if (Stopwatch.millisecs > 999) {
-      Stopwatch.secs++, Stopwatch.millisecs = 0;
-    if (Stopwatch.secs > 59) {
-      Stopwatch.mins++, Stopwatch.secs = 0;
-    } 
-   } 
+      Stopwatch.secs++ , Stopwatch.millisecs = 0;
+      if (Stopwatch.secs > 59) {
+        Stopwatch.mins++ , Stopwatch.secs = 0;
+      }
+    }
   },
-  reset: function(){
-    // Your Code Here
+  reset: function () {
+    Stopwatch.mins = 0;
+    Stopwatch.secs = 0;
+    Stopwatch.millisecs = 0;
+    Stopwatch.laps = [];
   },
-  start: function(){
+  start: function () {
     Stopwatch.isRunning = true;
     Stopwatch.tickClock();
-     
   },
-  stop: function(){
-    // Your Code Here
+  stop: function () {
+    Stopwatch.isRunning = false;
   },
-  lap: function(){
+  lap: function () {
     // Your Code Here
   }
 };
 
 /// User Interface ///
 const ViewEngine = {
-  updateTimeDisplay: function(mins, secs, millisecs){
-// It displays the values of minutes, seconds, and (tens of)
-//   milliseconds elapsed in the DOM element with id `time-display`, in
-//   the format `MM:SS:ss` (e.g. `100:01:34`, `05:01:10`), starting with
-//   `00:00:00`.
-//It pads the values of minutes, seconds, and (tens of) milliseconds
-//   with zeros so that the strings are at least two characters long.
+  updateTimeDisplay: function (mins, secs, millisecs) {
+    $('#millisecs').html(Stopwatch.millisecs);
+    $('#secs').html(Stopwatch.secs);
+    $('#mins').html(Stopwatch.mins);
+    
+    // It displays the values of minutes, seconds, and (tens of)
+    //   milliseconds elapsed in the DOM element with id `time-display`, in
+    //   the format `MM:SS:ss` (e.g. `100:01:34`, `05:01:10`), starting with
+    //   `00:00:00`.
+    //It pads the values of minutes, seconds, and (tens of) milliseconds
+    //   with zeros so that the strings are at least two characters long.
   },
-  updateLapListDisplay: function(laps){
+  updateLapListDisplay: function (laps) {
     // Your Code Here
   },
 };
 const ViewHelpers = {
-  zeroFill: function(number, length){
+  zeroFill: function (number, length) {
     // Your Code Here
   },
 };
 
 /// Top-Level Application Code ///
 const AppController = {
-  handleClockTick: function(){
-    $('#millisecs').html(Stopwatch.millisecs);
-    $('#secs').html(Stopwatch.secs);
-    $('#mins').html(Stopwatch.mins);
-//It retrieves the current time values (mins, secs, millisecs) from `Stopwatch`.
-//It calls `updateTimeDisplay` on `ViewEngine`.
+  handleClockTick: function () {
+    ViewEngine.updateTimeDisplay(Stopwatch.mins, Stopwatch.secs, Stopwatch.millisecs);
+    //It retrieves the current time values (mins, secs, millisecs) from `Stopwatch`.
+    //It calls `updateTimeDisplay` on `ViewEngine`.
   },
-  handleClickStart: function() {
-    Stopwatch.start(); 
-
+  handleClickStart: function () {
+    Stopwatch.start();
   },
 
-  handleClickStopReset: function(){
-    // Your Code Here
+  handleClickStopReset: function () {
+    if (Stopwatch.isRunning === true) {
+      Stopwatch.stop();
+    } else {
+      Stopwatch.reset();
+      ViewEngine.updateTimeDisplay(0, 0, 0);
+    }
   },
-  handleClickLap: function(){
-    // Your Code Here
+  handleClickLap: function () {
+    $('#lap-list').html(Stopwatch.laps);
   }
 };
 
-window.onload = function(){
+window.onload = function () {
   // Attach AppController methods to the DOM as event handlers here.
   $('#start').on('click', AppController.handleClickStart);
-    $('#lap').on('click', AppController.handleClickLap);
-      $('#stop').on('click', AppController.handleClickStopReset);
+  $('#lap').on('click', AppController.handleClickLap);
+  $('#stop').on('click', AppController.handleClickStopReset);
 };
