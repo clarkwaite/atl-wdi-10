@@ -5,14 +5,16 @@ See LICENSE for details.
 */
 
 body {
-  padding: 10px 20% 10px;
+  padding: 10px 10% 10px;
   text-align: center;
+    background-image: url("http://www.artsfon.com/pic/201412/1920x1080/artsfon.com-37516.jpg");
+  background-size: 1920px, 1080px;
 }
 
 main, aside {
   padding: 10px;
   border: 1px black solid;
-  background-color: #EEEEEE;
+  background-color: rgba(255,255,255,0.5);
 }
 
 main section {

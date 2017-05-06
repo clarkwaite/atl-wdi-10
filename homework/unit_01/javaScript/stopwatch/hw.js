@@ -58,8 +58,6 @@ const ViewEngine = {
     $('#secs').html(Stopwatch.secs);
     $('#mins').html(Stopwatch.mins);
     ViewHelpers.zeroFill();
-    {
-    }
   },
   updateLapListDisplay: function (laps) {
     // Your Code Here
@@ -67,8 +65,7 @@ const ViewEngine = {
 };
 const ViewHelpers = {
   zeroFill: function (number, length) {
-    if (Stopwatch.millisecs.toString().length < 2) {
-    }
+
     if (Stopwatch.secs.toString().length < 2) {
       Stopwatch.secs = '0' + Stopwatch.secs;
     }
