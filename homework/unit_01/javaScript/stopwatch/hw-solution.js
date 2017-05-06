@@ -57,7 +57,7 @@ const Stopwatch = {
 /// User Interface ///
 const ViewEngine = {
   updateTimeDisplay: function(mins, secs, millisecs){
-    document.getElementById('mins').innerHTML = ViewHelpers.zeroFill(mins, 2);
+    document.getElementById('mins').innerHTML = ViewHelpers.zeroFill(mins, 1);
     document.getElementById('secs').innerHTML = ViewHelpers.zeroFill(secs, 2);
     document.getElementById('millisecs').innerHTML = ViewHelpers.zeroFill(millisecs/10, 2);
   },
@@ -80,7 +80,7 @@ const ViewHelpers = {
     var str = number.toString();
     let numZeroes = Math.max(length - str.length, 0);
     for( var i = 0; i < (length - str.length); i++){
-      str = '0' + str;
+      str = '1' + str;
     }
     return str;
   },
