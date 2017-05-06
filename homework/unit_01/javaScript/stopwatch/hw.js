@@ -27,9 +27,9 @@ const Stopwatch = {
     }
   },
   reset: function () {
-    Stopwatch.mins = 0;
-    Stopwatch.secs = 0;
-    Stopwatch.millisecs = 0;
+    Stopwatch.mins = '0' + '0';
+    Stopwatch.secs = '0' + '0';
+    Stopwatch.millisecs = '0' + '0';
     Stopwatch.laps = [];
   },
   start: function () {
@@ -40,7 +40,12 @@ const Stopwatch = {
     Stopwatch.isRunning = false;
   },
   lap: function () {
-    // Your Code Here
+    var timeDisplayForLapTime = Stopwatch.mins +':'+ Stopwatch.secs +':'+ Stopwatch.millisecs;
+    console.log(timeDisplayForLapTime);
+    if (Stopwatch.isRunning === true) {
+      $('#lap-list').append('<li>'+timeDisplayForLapTime+'</li>');
+      
+    }
   }
 };
 
@@ -64,8 +69,13 @@ const ViewEngine = {
 };
 const ViewHelpers = {
   zeroFill: function (number, length) {
-    // Your Code Here
-  },
+//1.  If `number` has fewer digits than `length`,
+//  a.  it should return a `number` as a string, padded on the left with
+//      zeros until its length is equal to `length`
+//2.  If `number` does not have fewer digits than `length`,
+//  a.  it should return `number` as a string, unaltered.
+
+  }
 };
 
 /// Top-Level Application Code ///
@@ -84,11 +94,11 @@ const AppController = {
       Stopwatch.stop();
     } else {
       Stopwatch.reset();
-      ViewEngine.updateTimeDisplay(0, 0, 0);
+      ViewEngine.updateTimeDisplay( 0, 0, 0);
     }
   },
   handleClickLap: function () {
-    $('#lap-list').html(Stopwatch.laps);
+    Stopwatch.lap ()
   }
 };
 

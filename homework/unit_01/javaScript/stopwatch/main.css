@@ -16,8 +16,8 @@ main, aside {
 }
 
 main section {
-  padding: 0 30% 0;
-  font-size: 3em;
+  padding: 0 10% 0;
+  font-size: 2.75em;
 }
 
 main section button {
@@ -31,5 +31,5 @@ aside hr {
 
 aside ol {
   font-size: 2em;
-  margin: 0 30% 0;
+  margin: 0 20% 0;
 }
