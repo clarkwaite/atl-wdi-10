@@ -18,8 +18,8 @@ const Stopwatch = {
   laps: [],
   // DO NOT EDIT ABOVE THIS LINE
   advanceTenMillisecs: function () {
-    Stopwatch.millisecs += 10;
-    if (Stopwatch.millisecs > 999) {
+    Stopwatch.millisecs ++;
+    if (Stopwatch.millisecs > 99) {
       Stopwatch.secs++ , Stopwatch.millisecs = 0;
       if (Stopwatch.secs > 59) {
         Stopwatch.mins++ , Stopwatch.secs = 0;
@@ -65,7 +65,10 @@ const ViewEngine = {
 };
 const ViewHelpers = {
   zeroFill: function (number, length) {
-
+  Stopwatch.millisecs = Stopwatch.millisecs.toString();
+    if (Stopwatch.millisecs < 10) {
+      Stopwatch.millisecs = '0' + Stopwatch.millisecs;
+    }
     if (Stopwatch.secs.toString().length < 2) {
       Stopwatch.secs = '0' + Stopwatch.secs;
     }
