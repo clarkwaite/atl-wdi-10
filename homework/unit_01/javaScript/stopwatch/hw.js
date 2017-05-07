@@ -23,7 +23,7 @@ const Stopwatch = {
       Stopwatch.millisecs = "0" + Stopwatch.millisecs;
     }
     if (Stopwatch.millisecs > 99) {
-      Stopwatch.secs++ , Stopwatch.millisecs = 0;
+      Stopwatch.secs ++, Stopwatch.millisecs = 0;
       if (Stopwatch.secs > 59) {
         Stopwatch.mins++ , Stopwatch.secs = 0;
       }
@@ -75,7 +75,6 @@ const ViewHelpers = {
     if (Stopwatch.mins.toString().length < 2) {
      Stopwatch.mins = '0' + Stopwatch.mins;
     }
-
   }
 };
 
