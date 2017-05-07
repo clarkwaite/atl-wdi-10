@@ -27,9 +27,9 @@ const Stopwatch = {
     }
   },
   reset: function () {
-    Stopwatch.mins = '0' + '0';
-    Stopwatch.secs = '0' + '0';
-    Stopwatch.millisecs = '0' + '0';
+    Stopwatch.mins = '00';
+    Stopwatch.secs = '00';
+    Stopwatch.millisecs = '00';
     Stopwatch.laps = [];
   },
   start: function () {
