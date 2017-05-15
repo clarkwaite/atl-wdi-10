@@ -6,36 +6,59 @@
 ### The 6 highest-starred npm packages are:
 
 # Library 1 Name
+#express
 
 ### Description:
-brief brief description here
+###Fast, unopinionated, minimalist web framework for node.
+
+###The Express philosophy is to provide small, robust tooling for HTTP servers, making it a great solution for single page applications, web sites, hybrids, or public HTTP APIs.
+
+###Express does not force you to use any specific ORM or template engine. With support for over 14 template engines via Consolidate.js, you can quickly craft your perfect framework.
 
 ### Total Downloads last month:
+###11,122,837
 
 # Library 2 Name
+#gulp
 
 ### Description:
-brief description here
+###Gulp is a toolkit that helps you automate painful or time-consuming tasks in your development workflow. Integrations are built into all major IDEs and people are using gulp with PHP, .NET, Node.js, Java, and other platforms. Use npm modules to do anything you want + over 2000 curated plugins for streaming file transformations.By providing only a minimal API surface, gulp is easy to learn and simple to use.
 
 ### Total Downloads last month:
+###2,805,756
 
 # Library 3 Name
+#request
 
 ### Description:
-brief description here
+###Request is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.
 
 ### Total Downloads last month:
+###23,299,113
 
 # Library 4 Name
+#lodash
 
 ### Description:
-brief description here
+###A modern JavaScript utility library delivering modularity, performance & extras.
 
 ### Total Downloads last month:
+###39,884,327
 
 # Library 5 Name
+#async
 
 ### Description:
-brief description here
+###Async is a utility module which provides straight-forward, powerful functions for working with asynchronous JavaScript.
 
 ### Total Downloads last month:
+###41,427,360
+
+# Library 6 Name
+#pm2
+
+### Description:
+###PM2 is a production process manager for Node.js applications with a built-in load balancer. It allows you to keep applications alive forever, to reload them without downtime and to facilitate common system admin tasks.
+
+### Total Downloads last month:
+###519,601
