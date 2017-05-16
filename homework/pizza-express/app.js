@@ -17,12 +17,22 @@ app.get('/', function(req, res) {
   res.send('Welcome to Pizza Express!');
 });
 
-app.get('/topping/:type', function(req, res, next) {
-  // when a request comes in at localhost:3000, it will respond 
-  res.send(`${req.params.type} pizza! Good choice!`);
+app.get('/topping', function(req, res) {
+  res.render("toppings", {
+    data: req.query.type
+  });
 });
 
-app.get('/order/:amount/:size', function(req, res, next) {
-  // when a request comes in at localhost:3000, it will respond 
-  res.send(`Your order for ${req.params.amount} ${req.params.size} pizzas will be ready in 1 minute!`);
+app.get('/order', function(req, res) {
+    res.render("order", {
+    data: [req.query.amount, req.query.size]
+  });
+});
+
+app.get('/favorite-foods', function(req,res) {
+ 
+ var favoriteFoods = ["Country Fried Steak", "Taco Bell", "Mashed Potatoes", "Reese's Peanut Butter Cups"]
+ res.render('favorite-foods', {
+        data: favoriteFoods
+   });
 });
