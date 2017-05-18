@@ -5,7 +5,7 @@ var data = require('../models/pirates.js');
 
 /* INDEX PIRATES */
 router.get('/', function(req,res) {
-  res.render('../../views/index.hbs', {
+  res.render('../views/index.hbs', {
     pirates: data,
     numberOfPirates: data.length
   });
@@ -13,14 +13,14 @@ router.get('/', function(req,res) {
 
 /* NEW PIRATE */
 router.get('/new', function(req, res){
-  res.render('../../views/new.hbs');
+  res.render('../views/new.hbs');
 });
 
 /* SHOW PIRATE */
 router.get('/:id', function(req,res) {
   var pirate = data[req.params.id];
 
-  res.render('../../views/show.hbs', {
+  res.render('../views/show.hbs', {
     pirate: pirate
   });
 });

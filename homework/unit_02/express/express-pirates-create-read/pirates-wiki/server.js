@@ -1,15 +1,23 @@
-var express     = require('express');
-var hbs         = require('hbs');
-var bodyParser  = require('body-parser');
-var router      = express.Router();
-var piratesController = require('./controllers/piratesController.js');
-var app         = express();
-var port        = process.env.PORT || 3000;
+//===========================
+// REQUIREMENTS
+//===========================
+var express = require("express");
+var app = express();
+var logger = require("morgan");
+var bodyParser = require("body-parser");
+var hbs = require('hbs');
 
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
-	app.use(bodyParser.json());
+//===========================
+// MIDDLEWARE
+//===========================
+//this is for morgan
+app.use(logger("dev"));
+//these are for bodyParser
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+//set handlebars as view engine
+app.set("view engine", "hbs");
+app.set('views', './views');
     
 app.use("/pirates", piratesController);
 
