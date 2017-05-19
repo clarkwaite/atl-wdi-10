@@ -1,0 +1,26 @@
+<form action="/pirates/{{pirates.id}}?_method=PUT" method="POST">
+  <div>
+    <label for="description">Name:</label>
+    <input type="text" name="name" value="{{pirates.name}}">
+  </div>
+  <div>
+    <label for="description">Birthplace:</label>
+    <input type="text" name="birthplace" value="{{pirates.birthplace}}">
+  </div>
+  <div>
+    <label for="description">Death Year:</label>
+    <input type="text" name="death_year" value="{{pirates.death_year}}">
+  </div>
+  <div>
+    <label for="description">Base:</label>
+    <input type="text" name="base" value="{{pirates.base}}">
+  </div>
+  <div>
+    <label for="description">Nick Name:</label>
+    <input type="text" name="nickname" value="{{pirates.nickname}}">
+  </div>
+  <div>
+    <input type="submit" value="Update Pirate">
+  </div>
+</form>
+

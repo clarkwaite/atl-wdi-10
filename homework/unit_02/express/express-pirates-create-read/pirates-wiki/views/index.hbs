@@ -1,7 +1,15 @@
+
 <h1>{{numberOfPirates}} Famous Pirates</h1>
 <ul>
     {{#each pirates}}
-        <li><a href='http://localhost:3000/pirates/{{@index}}'>{{name}}</a></li>
+        <li class = 'pirateNames'>
+            <a href='http://localhost:3000/pirates/{{@index}}'>{{name}}</a><a href = "/pirates/{{@index}}/edit">
+            
+           <form action='http://localhost:3000/pirates/{{@index}}/edit' class = "edit"><input type="submit" value="EDIT" class="btn btn-default btn-xs"/></form></a>
+            
+            <form action="/pirates/{{@index}}?_method=DELETE" method="POST" class = "delete">
+            <input type="submit" value="DELETE" class="btn btn-danger btn-xs"/></form></button>
+        </li>
     {{/each}}
 </ul>
 <h4><a href='http://localhost:3000/pirates/new'>Create A New Pirate</a></h4>

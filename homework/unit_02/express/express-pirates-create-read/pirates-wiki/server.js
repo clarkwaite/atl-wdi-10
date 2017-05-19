@@ -6,6 +6,9 @@ var app = express();
 var logger = require("morgan");
 var bodyParser = require("body-parser");
 var hbs = require('hbs');
+var port = process.env.PORT || 3000
+var piratesController = require('./controllers/piratesController.js');
+var methodOverride = require('method-override');
 
 //===========================
 // MIDDLEWARE
@@ -19,9 +22,11 @@ app.use(bodyParser.json());
 app.set("view engine", "hbs");
 app.set('views', './views');
     
+app.use(methodOverride('_method')); 
+
 app.use("/pirates", piratesController);
 
-app.set('view engine', 'hbs');
+app.use(express.static(__dirname + '/public'));
 /* HOME */
 app.get('/', function(req,res) {
   res.send('This is our Home Page');

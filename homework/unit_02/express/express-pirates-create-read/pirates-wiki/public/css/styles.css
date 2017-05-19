@@ -1,0 +1,10 @@
+a {
+    font-size: 22px;
+}
+.delete {
+    display: inline-block;
+}
+.edit {
+    display: inline-block;
+    margin-left: 15px;
+}
