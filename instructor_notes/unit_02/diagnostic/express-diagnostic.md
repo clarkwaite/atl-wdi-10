@@ -10,9 +10,9 @@ GET is a read function and POST is an update function. GET will allow you to see
 NPM init creates a package.json file and now any dependencies that you install and save will be noted there for future installs.
 
 ### Question 4: What does CRUD stand for?  What are the HTTP verbs that are associated with each function?
-CREATE(Put)
+CREATE(Post)
 READ(Get)
-UPDATE(Post)
+UPDATE(Put)
 DELETE(Delete)
 
 ### Question 5: If we have a form where we want to create new data, what type of `method` do we use in our form?  
