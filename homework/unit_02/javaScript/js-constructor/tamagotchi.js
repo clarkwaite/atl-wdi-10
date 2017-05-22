@@ -22,6 +22,26 @@ var tamagotchi = function (name, creatureType) {
     console.log('Awwwwww! '+this.name+' is sleepy!!!!');
     console.log(this.name+"\'s restedness is now "+this.restedness+"/10!");
   };  
+  //Start/Stop Functions
+  this.start = function(){
+    console.log("Starting " + this.name);
+    var self = this;
+    this.hungerTimer = setInterval(function() {
+      self.cry();
+    }, 6000);
+    this.yawnTimer = setInterval(function() {
+      self.yawn();
+    }, 10000);
+    this.sickTimer = setInterval(function() {
+      self.puke();
+    }, 25000);
+  };
+  this.stop = function(){
+    console.log("Stopping " + this.name);
+    clearInterval(this.hungerTimer);
+    clearInterval(this.yawnTimer);
+    clearInterval(this.sickTimer);
+  };
 };
 //create new Tamagotchis
 var tom1 = new Tamagotchi('Ziggy', 'dog');
