@@ -1,0 +1,27 @@
+.input-group {
+    margin-bottom: 15px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#movieResultDiv {
+    margin: 0 auto;
+}
+
+.movie-result {
+    display: block;
+    text-align: center;
+    width: 30%;
+    border: solid black 2px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.movie-poster {
+    width:97%;
+    height:98%;
+    margin: 5px;
+}
+

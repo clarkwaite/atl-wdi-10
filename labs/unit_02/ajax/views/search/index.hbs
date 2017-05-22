@@ -1,0 +1,21 @@
+{{!--SEARCH--}}
+<div class = 'container' id='header'>
+ <h1>Search For A Movie</h1>
+
+   <div class="col-lg-6 col-lg-offset-3">
+     <div class="input-group">
+       <input type="text" class="form-control" id ="movieSearchBar" placeholder="Search Our Database For A Movie...">
+       <span class="input-group-btn">
+         <button id='searchButton' class="btn btn-default" type="button">Go!</button>
+       </span>
+     </div><!-- /input-group -->
+   </div><!-- /.col-lg-6 -->
+ </div><!-- /.row -->
+</div>{{!--container--}}
+
+  <div id = 'movieResultDiv' class="container">
+  </div> 
+
+
+
+{{!--http://www.omdbapi.com/?apikey=d31f1a94&s={{movieName}}--}}
