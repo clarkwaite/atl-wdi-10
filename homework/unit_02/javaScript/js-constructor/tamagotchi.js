@@ -10,8 +10,18 @@ var tamagotchi = function (name, creatureType) {
   this.cry = function(){
       console.log("WAHH!!! "+this.name+" is crying!!")
       this.foodInTummy--;
-      console.log("Tamagotchi's food level is now "+this.foodInTummy+"/10!");
+      console.log(this.name+"\'s food level is now "+this.foodInTummy+"/10!");
   };
+  this.puke = function() {
+    this.health--;
+    console.log('Grooooss! '+this.name+' barfed!!!!');
+    console.log(this.name+"\'s health is now "+this.health+"/10!");
+  };  
+  this.yawn = function() {
+    this.restedness--;
+    console.log('Awwwwww! '+this.name+' is sleepy!!!!');
+    console.log(this.name+"\'s restedness is now "+this.restedness+"/10!");
+  };  
 };
 //create new Tamagotchis
 var tom1 = new Tamagotchi('Ziggy', 'dog');
