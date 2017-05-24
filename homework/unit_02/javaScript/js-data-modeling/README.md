@@ -30,7 +30,56 @@ entities/abstractions (e.g. Senior Paws app, above) that the app might use, and 
 This app provides easy access to all your e-mail service providers in one app. The app will let you select one of your email addresses and view your e-mails for that address.
 
 ```
-Write your answer here or in a separate js file.
+User
+-Id Number
+-Name
+-Password
+
+Inbox
+-Added Email Accounts
+-Accounts to be Viewed
+-Unread Emails
+-Read Emails
+
+Email Accounts
+-Ids
+-User Names
+-Passwords
+
+var user = {
+ id: number,
+ name: String,
+ password: String
+}
+
+var inbox = {
+  emailAccounts: [],
+  viewedAccounts: [],
+  unreadEmails: [],
+  readEmails: []
+} 
+
+varEmailAccount = {
+ id: String,
+ userName: String,
+ password: String
+}
+
+Example
+var exampleUser = {
+  id: '3659163',
+  name: Charlie Fillups,
+  password: 'charleee',
+  inbox: [{
+    emailAccounts: charlie@yahoo.com, charlie@gmail.com, charlie@aol.com,
+    viewedAccounts: charlie@yahoo.com, charlie@gmail.com,
+    unreadEmails: unread1, unread2, unread3,
+    readEmails: read1, read2 }]
+  varEmailAccount = [{
+  id: '01235673',
+  userName: 'charlie111',
+  password: 'charchar' }]
+
 ```
 
 ### 2. Radio on the Internet app
@@ -39,7 +88,69 @@ This app hosts a ton of radio stations, each featuring their own playlists of so
 
 
 ```
-Write your answer here or in a separate js file.
+User
+-Id Number
+-Name
+-Password
+
+Stations
+-Station Id
+-Genre
+-Popularity
+
+Playlists
+-Song Ids
+-Song Name
+-Genre
+-Popularity
+
+var user = {
+ id: Number,
+ name: String,
+ password: String
+}
+
+var playlists = {
+  playlistName: String,
+  songs: [strings]
+  songId: String,
+  songName: String,
+  genre: String,
+  popularity: Number
+} 
+
+var stations = {
+ stationId: String,
+ Genre: String,
+ Popularity: Number
+}
+
+Example
+var exampleUser = {
+  id: '3659163',
+  name: Charlie Fillups,
+  password: 'charleee',
+   playlist: [{
+   playlistName: 'Tunes',
+   songs: [song1, song2, song3]
+   songId: String,
+   songName: String,
+   genre: String,
+   popularity: Number }]
+
+ var exampleStation = {
+  stationId: 'Funk It Up',
+  Genre: 'Funk',
+  Popularity: 12,345
+    playlist: [{
+    playlistName: 'funkStation',
+    songs: [song1, song2, song3]
+    songId: String,
+    songName: String,
+    genre: String,
+    popularity: Number }]
+ }
+  
 ```
 
 ### 3. Rock Concert App
@@ -47,19 +158,158 @@ Write your answer here or in a separate js file.
 This app will be a tool for managing all of your favorite bands' concerts; it will keep track of their tour dates, ticket purchasing, and next recommended show.
 
 ```
-Write your answer here or in a separate js file.
+User
+-Id Number
+-Name
+-Password
+
+Bands
+-Band Name
+-Genre
+-Popularity
+-Tour Dates
+-Tour Locations
+
+Concerts
+-Venue
+-Dates
+-Tickets
+
+var user = {
+ id: Number,
+ name: String,
+ password: String
+}
+
+var band = {
+  playlistName: String,
+  songs: [strings]
+  songId: String,
+  songName: String,
+  genre: String,
+  popularity: Number
+} 
+
+var concerts = {
+ venue: String,
+ dates: String,
+ tickets: Boolean, URL
+}
+
 ```
 
 ### 4. Coffee To-Go App
 
 This app will allow customers to browse a list of coffeeshops nearby, order drinks off of their menu, add those drinks to a shopping cart, and save that cart as a past order once the purchase is complete.
 
+```
+User
+-Id Number
+-Name
+-Password
+
+Coffee Shops
+-Name
+-Address
+-Menu
+
+Shopping Cart
+-Drink Info
+-Total Price
+
+var user = {
+ id: Number,
+ name: String,
+ password: String
+}
+
+var coffeeShop = {
+  shopName: String,
+  address: String,
+  hours: String,
+  phoneNUmber: String,
+  menu: [{Strings}]
+} 
+
+var shoppingCart = {
+ drinkInfo: [{String}],
+ totalPrice: Number
+}
+
+Example
+var exampleUser = {
+  id: '3659163',
+  name: Mr. Coffee,
+  password: 'beansRgood',
+   coffeeShop = {
+   shopName: 'Mermaid Coffee',
+   address: '123 Coffee Street',
+   phoneNumber: '123-456-7890,
+   menu: [{name1: coffeeDrink, price: $tooMuch.00,}{ name2 etc...}]
+     shoppingCart = {
+       drinkInfo: [{drink1: coffeeDrink, price: $tooMuch.00,}{ drink2 etc...}],
+       totalPrice: '$47.50'
+ }
+```
 ### 5. Team Tracker App
 
 This app shows you all the latest stats from your favorite sports teams. You can view individual player stats and full team stats.
 
 ```
-Write your answer here or in a separate js file.
+User
+-Id Number
+-Name
+-Password
+
+Team Stats
+-Name
+-Schedule
+-Ranking
+-Players
+
+Player Stats
+-Player Name
+-Number
+-Team
+-Stats
+
+var user = {
+ id: Number,
+ name: String,
+ password: String
+}
+
+var teamStats = {
+  teamName: String,
+  schedule: [Strings],
+  ranking: String,
+  players: [Strings],
+} 
+
+var playerStats = {
+  playerName: String,
+  team: String,
+  number: String,
+  yards: Number,
+  completions: String
+}
+
+Example
+var exampleUser = {
+  id: '3659163',
+  name: Mr. Football,
+  password: 'i-heart-football',
+    teamStats = {
+    teamName: 'Dallas Cowboys',
+    schedule: [{game1: 'Atlanta Falcons', date: '1/12/18', location: 'home'}{ game2 etc...}]
+    ranking: '24/56'
+    players: ['player1', 'player2', 'player3']
+     players: {
+       playerName: 'Dak Prescott',
+       team: 'Dallas Cowboys'
+       yards: 1000
+       completions: 124/167
+ }
 ```
 
 
@@ -68,7 +318,7 @@ Write your answer here or in a separate js file.
 Q. When you were creating relationships between the models, what were some thoughts or questions you had to help guide a connection between them?
 
 ```
-Write your answer here or in a separate js file.
+I was trying to think about how a user would want to use this site. I could have spent an hour on each one of these going more in depth. There are so many possibilities for details when you are doing this. 
 ```
 
 ### Reading and Videos for Tomorrow
