@@ -5,7 +5,6 @@ var User = require("../models/user");
 var Item = require("../models/item");
 
 // USERS INDEX ROUTE
-<<<<<<< HEAD
 router.get('/', function(req, res) {
     User.find({})
     .exec(function(err, users) {
@@ -17,8 +16,6 @@ router.get('/', function(req, res) {
         res.send(users);
     })
 });
-=======
->>>>>>> 49f8f6a3283000c84a573049c023a03c21ff8e60
 
 // USER SHOW ROUTE
 router.get('/:id', function(req, res){
@@ -30,8 +27,8 @@ router.get('/:id', function(req, res){
   });
 });
 
+
 // USER CREATE ROUTE
-<<<<<<< HEAD
 router.post('/', function(req, res) {
   var user = new User({
     first_name: req.body.first_name,
@@ -45,8 +42,6 @@ router.post('/', function(req, res) {
     res.send(user);
   });
 });
-=======
->>>>>>> 49f8f6a3283000c84a573049c023a03c21ff8e60
 
 // USER UPDATE ROUTE
 router.patch('/:id', function(req, res) {
@@ -65,8 +60,8 @@ router.patch('/:id', function(req, res) {
   });
 });
 
+
 // USER DESTROY
-<<<<<<< HEAD
 router.delete('/:id', function(req, res) {
   User.findByIdAndRemove(req.params.id)
   .exec(function(err, user) {
@@ -103,11 +98,5 @@ router.delete('/:userId/items/:id', function(req, res) {
     res.send(item + " Item deleted");
   });
 });
-=======
-
-// ADD A NEW ITEM
-
-// REMOVE AN ITEM
->>>>>>> 49f8f6a3283000c84a573049c023a03c21ff8e60
 
 module.exports = router;

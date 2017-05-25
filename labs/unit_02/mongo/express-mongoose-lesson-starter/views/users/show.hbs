@@ -1,0 +1,16 @@
+<h1>{{user.first_name}}</h1>
+<br>
+    <div>First Name: {{user.first_name}}</div>
+    <div>Last Name: {{user.last_name}}</div>
+    <div>Email: {{user.email}}</div>
+    <div>Created At: {{user.created_at}}</div>
+     <div>Items: 
+         <ul>
+         {{# each user.items}}
+         <li>Name: {{name}}</li>
+         {{/ each}}
+         </ul>
+     </div>
+     <div><a href='/users/edit/{{user.id}}'>Edit This User</a></div>
+    <br>  
+</ul>

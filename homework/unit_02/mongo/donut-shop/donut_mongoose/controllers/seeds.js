@@ -5,7 +5,11 @@
 var express = require("express");
 var router = express.Router();
 var mongoose = require("mongoose");
+<<<<<<< HEAD
 var Donuts = require("../models/donuts.js");
+=======
+var Donut = require("../models/donuts.js");
+>>>>>>> 49f8f6a3283000c84a573049c023a03c21ff8e60
 
 
 router.get('/newproducts', function(req, res) {
