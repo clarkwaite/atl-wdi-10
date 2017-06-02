@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html ng-app="storeApp">
-  <head>
-    <meta charset="utf-8">
-    <title>Angular Store App</title>
-  </head>
-  <body>
-    {{'I ' + 'am ' + 'a ' + 'working ' + 'Angular.js ' + 'app!' }}
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.min.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Angular Store App</title>
+</head>
+
+<body ng-controller="ProductsController as productsCtrl">
+  <ul>
+    <li ng-repeat='product in productsCtrl.products'>
+      <div>
+        Product Name: {{product.name}} | Price: {{product.price | currency : $}} | Date Added {{product.dateAdded | date : MM/dd/yyyy}}
+      </div>
+      <br>
+    </li>
+  </ul>
+
+   <form id="addProduct" ng-submit="productsCtrl.addProduct()">
+      <input type="text" placeholder="Add a new product" ng-model="productsCtrl.newProduct.name" />
+      <input type="text" placeholder="Price" ng-model="productsCtrl.newProduct.price" />
+      <input type="date" placeholder="Price" ng-model="productsCtrl.newProduct.dateAdded" />
+    <p ng-if="productsCtrl.newProduct.name">Adding this new product: {{ productsCtrl.newProduct.name }} </p>
+    <p ng-if="productsCtrl.newProduct.price">Price: {{ productsCtrl.newProduct.price }}</p>
+    <br />
+    <input type='submit'>
+  </form>
+  <br>
+  <ul ng-controller="ReviewsController as reviewsCtrl">
+    <h3>Displaying {{productsCtrl.products.length}} products across {{reviewsCtrl.productCategories.length}} categories</h3>
+    <li ng-repeat="categories in reviewsCtrl.productCategories">
+      {{categories}}
+    </li>
+    </ul>
+  <br>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src='js/productsController.js'></script>
+  <script src='js/reviewsController.js'></script>
+</body>
+
 </html>
