@@ -16,21 +16,30 @@ body {
 }
 
 #container {
+  display: block;
   width: 1300px;
   height: 2000px;
   margin: 0 auto;
 }
 
 #left {
-  display: inline-block;
-  width: 650px; height: 2000px;
+  float: left;
+  display: block;
+  width: 650px; height: 50px;
 }
 
 #right {
-  display: inline-block;
-  width: 600px; height: 2000px;
-  vertical-align: top;
+  float: right;
+  display: block;
+  width: 600px; height: 50px;
   margin-top: 35px;
+  position:relative;
+  margin:0 auto;
+  clear:left;
+  height:auto;
+  z-index: 0;
+  text-align:center;/* Add This*/
+  
 }
 
 #right ul span {

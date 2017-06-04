@@ -31,4 +31,19 @@ router.post('/', function(req, res) {
   });
 });
 
+// update record
+router.put('/:id', function(req, res) {
+  Wbinfo.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, info) {
+    res.send(info);
+  });
+});
+
+// delete record
+router.delete('/:id', function(req, res) {
+  Wbinfo.findById(req.params.id, function(err, info) {
+    info.remove();
+    res.send(info);
+  });
+});
+
 module.exports = router;
