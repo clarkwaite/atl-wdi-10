@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Infamous Criminals</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-messages.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/criminalsController.js"></script>
   <script src="js/services/criminalsService.js"></script>
@@ -22,10 +23,23 @@
     </ul>
 
 
-    <form ng-submit="criminals.addCriminal()" id="newCriminal">
+    <form ng-submit="criminals.addCriminal()" id="newCriminal" name='newCriminal' novalidate>
       <div>
         <label for="newCriminal-name">Name:</label>
-        <input type="text" id="newCriminal-name" ng-model="criminals.newCriminal.name" placeholder="Prof. Moriarty">
+         <input type="text"
+         class="form-control"
+         id="newCriminal-name"
+         placeholder="Prof. Moriarty"
+         name="criminal"
+         ng-model="criminals.newCriminal.name"
+         ng-minlength="3"
+         ng-maxlength="10"
+         required />
+  </div>
+  <div class="error-messages" ng-messages="newCriminal.criminal.$error">
+    <div ng-message="required">Username is required</div>
+    <div ng-message="minlength">Username is too short</div>
+    <div ng-message="maxlength">Username is too long</div>
       </div>
       <div>
         <label for="newCriminal-location">Location:</label>
@@ -46,6 +60,11 @@
     </form>
 
   </section>
-
+<hr/>
+  <hh>Some debugging output:</h4>
+  <pre>myForm.$valid         = {{ myForm.$valid         | json }}</pre>
+  <pre>myForm.user.$error    = {{ myForm.user.$error    | json }}</pre>
+  <pre>myForm.email.$error   = {{ myForm.email.$error   | json }}</pre>
+  <pre>myForm.zipcode.$error = {{ myForm.zipcode.$error | json }}</pre>
 </body>
 </html>
