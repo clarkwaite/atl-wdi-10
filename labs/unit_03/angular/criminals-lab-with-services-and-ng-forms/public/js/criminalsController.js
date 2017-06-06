@@ -12,6 +12,8 @@ function CriminalsController(CriminalsService){
   self.deleteCriminal = deleteCriminal;
 
   getCriminals();
+
+
   function getCriminals(){
     CriminalsService.getCriminals().then(function (criminalsData) {
       self.all = criminalsData;
