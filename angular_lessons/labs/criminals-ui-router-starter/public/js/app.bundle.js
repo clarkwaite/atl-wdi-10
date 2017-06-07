@@ -8940,12 +8940,18 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		template: '<h1>About</h1><a ui-sref="home">Home</a>'
 	}).state('criminals', {
 		url: '/criminals',
+		//if components name is 2 words such as CriminalsShow
+		//it will be camel case in the component, but here it will be with a hyphen. criminals-show
 		template: '<criminals></criminals>'
 	}).state('criminalsNew', {
 		url: '/criminals/new',
+		//if components name is 2 words such as CriminalsShow
+		//it will be camel case in the component, but here it will be with a hyphen. criminals-show
 		template: '<criminals-new></criminals-new>'
 	}).state('criminalsShow', {
 		url: '/criminals/:criminalId',
+		//if components name is 2 words such as CriminalsShow
+		//it will be camel case in the component, but here it will be with a hyphen. criminals-show
 		template: '<criminals-show></criminals-show>'
 	});
 
