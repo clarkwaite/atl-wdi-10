@@ -12,12 +12,12 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		.state('home', {
 			url: '/',
 			template: '<home></home>'
+		})
+		.state('quotes', {
+			url: '/quotes',
+			// template: '<about></about>' // LAB Goal #1 -- get this line to work
+			template: '<quotes></quotes>'
 		});
-// 		.state('about', {
-// 			url: '/about',
-// 			// template: '<about></about>' // LAB Goal #1 -- get this line to work
-// 			template: '<h1>About</h1><a ui-sref="home">Home</a>'
-// 		})
 // 		.state('criminals', {
 // 			url: '/criminals',
 // 		//if components name is 2 words such as CriminalsShow

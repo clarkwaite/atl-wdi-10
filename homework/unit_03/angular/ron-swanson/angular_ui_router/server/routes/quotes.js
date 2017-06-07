@@ -16,6 +16,14 @@ router.get('/', function(request, response) {
   })
 });
 
+// router.get(‘/’, function(request, response) {
+//   Quote.find(function(error, quotes) {
+//     if(error) response.json({message: ‘Could not find any quote’});
+
+//    response.json({quotes: quotes});
+//   });
+// });
+
 // // POST
 // router.post(‘/’, function(request, response) {
 //   console.log(‘in POST’);
