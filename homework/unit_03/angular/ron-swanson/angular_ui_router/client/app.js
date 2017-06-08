@@ -15,7 +15,6 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		})
 		.state('quotes', {
 			url: '/quotes',
-			// template: '<about></about>' // LAB Goal #1 -- get this line to work
 			template: '<quotes></quotes>'
 		});
 // 		.state('criminals', {

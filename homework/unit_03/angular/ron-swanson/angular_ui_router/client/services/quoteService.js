@@ -1,16 +1,27 @@
 angular.module('RonSwansonApp')
-  .service('QuoteService', QuoteService);
+  .service('QuotesService', QuotesService);
 
-QuoteService.$inject = ['$http'];
+QuotesService.$inject = ['$http'];
 
-function QuoteService($http){
-  console.log("QuoteService ready for action!");
+function QuotesService($http) {
+  console.log("QuotesService ready for action!");
 
-// //   this.getQuote = function() {
-// //     return $http.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC')
-// //       .then(function(quoteResponse) {
-// //         return quoteResponse.data.data.image_url;
-// //       });
-//     }
-  
+  const self = this;
+
+  self.getQuote = function () {
+    return $http.get('http://ron-swanson-quotes.herokuapp.com/v2/quotes')
+      .then(function (response) {
+        return response;
+      });
+  };
+  self.saveQuote = function (quoteToSave) {
+    return $http.post('/quotes', { quote: quoteToSave })
+  };
+  self.getQuotes = function () {
+    return $http.get('/quotes')
+      .then(function (response) {
+        console.log('this is diferent than before GET');
+        return response;
+      });
+  };
 };

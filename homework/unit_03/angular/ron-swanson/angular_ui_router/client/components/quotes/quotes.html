@@ -3,12 +3,19 @@
 
   <h1>RON SWANSON QUOTE OF THE DAY</h1>
 
-  <button>Get Swansonized</button>
+<div>
+  <button ng-click='$ctrl.getQuote()'>Get Swansonized</button>
 
   <ul>
-    <li>This will be a quote</li>
+    <li>{{$ctrl.quote}}</li>
   </ul>
-
+  <button ng-click='$ctrl.saveQuote()'>Save as Favorite</button>
+<hr>
   <h3>See All my saved quotes</h3>
+  <ol>
+    <li ng-repeat='quote in $ctrl.favoriteQuotes'>
+      {{quote.quote}}
+    </li>
+  </ol>
 
 </section>

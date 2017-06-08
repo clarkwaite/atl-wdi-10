@@ -5139,35 +5139,47 @@ module.exports = HomeController;
 "use strict";
 
 
-console.log("Quotes Controller Works!"
-
 //Your QUOTES CONTROLLER HERE!
 
-);QuotesController.$inject = ['QuotesService'];
+QuotesController.$inject = ['QuotesService'];
 
 function QuotesController(QuotesService) {
-	var vm = this;
+    var vm = this;
+    vm.getQuote = getQuote;
+    vm.quote = '';
+    vm.favoriteQuotes = [];
+    vm.saveQuote = saveQuote;
+    vm.getQuotes = getQuotes;
 
-	// WHAT THIS CONTROLLER HAS / DOES THAT IS CONNECTED TO THE VIEW
-	vm.quotes = [];
-	vm.loading = true;
+    // WHAT THIS CONTROLLER HAS / DOES THAT IS CONNECTED TO THE VIEW
 
-	// activate === BEST PRACTICE, ALWAYS DO IT, EVEN IF EMPTY
-	activate();
+    // activate === BEST PRACTICE, ALWAYS DO IT, EVEN IF EMPTY
+    activate();
 
-	function activate() {
-		getQuote();
-	}
+    function activate() {
+        getQuotes();
+    }
 
-	// HOW IT DOES STUFF
-	function getQuote() {
-		QuotesService.getQuote().then(function resolve(response) {
-			console.log(response);
-			vm.quotes = response.data.quotes; // array of quotes
-			vm.loading = false;
-		});
-	}
-}
+    // HOW IT DOES STUFF
+    function getQuote() {
+        QuotesService.getQuote().then(function resolve(response) {
+            vm.quote = response.data[0];
+        });
+    }
+
+    function saveQuote() {
+        QuotesService.saveQuote(vm.quote).then(function resolve(response) {
+            getQuotes();
+        });
+    };
+
+    function getQuotes() {
+        QuotesService.getQuotes().then(function resolve(response) {
+            console.log(response);
+            vm.favoriteQuotes = response.data.quotes;
+        });
+    };
+};
 
 module.exports = QuotesController;
 
@@ -8866,7 +8878,6 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		template: '<home></home>'
 	}).state('quotes', {
 		url: '/quotes',
-		// template: '<about></about>' // LAB Goal #1 -- get this line to work
 		template: '<quotes></quotes>'
 	});
 	// 		.state('criminals', {
@@ -8950,19 +8961,29 @@ angular.module('RonSwansonApp').component('quotes', component);
 "use strict";
 
 
-angular.module('RonSwansonApp').service('QuoteService', QuoteService);
+angular.module('RonSwansonApp').service('QuotesService', QuotesService);
 
-QuoteService.$inject = ['$http'];
+QuotesService.$inject = ['$http'];
 
-function QuoteService($http) {
-  console.log("QuoteService ready for action!");
+function QuotesService($http) {
+  console.log("QuotesService ready for action!");
 
-  // //   this.getQuote = function() {
-  // //     return $http.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC')
-  // //       .then(function(quoteResponse) {
-  // //         return quoteResponse.data.data.image_url;
-  // //       });
-  //     }
+  var self = this;
+
+  self.getQuote = function () {
+    return $http.get('http://ron-swanson-quotes.herokuapp.com/v2/quotes').then(function (response) {
+      return response;
+    });
+  };
+  self.saveQuote = function (quoteToSave) {
+    return $http.post('/quotes', { quote: quoteToSave });
+  };
+  self.getQuotes = function () {
+    return $http.get('/quotes').then(function (response) {
+      console.log('this is diferent than before GET');
+      return response;
+    });
+  };
 };
 
 /***/ }),
@@ -44619,7 +44640,7 @@ module.exports = "<div class=\"home\">\n  <h1>Home!!</h1>\n</div>\n";
 /* 97 */
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"quotes\">\n<!-- All your code goes inside this <section> -->\n\n  <h1>RON SWANSON QUOTE OF THE DAY</h1>\n\n  <button>Get Swansonized</button>\n\n  <ul>\n    <li>This will be a quote</li>\n  </ul>\n\n  <h3>See All my saved quotes</h3>\n\n</section>\n";
+module.exports = "<section id=\"quotes\">\n<!-- All your code goes inside this <section> -->\n\n  <h1>RON SWANSON QUOTE OF THE DAY</h1>\n\n<div>\n  <button ng-click='$ctrl.getQuote()'>Get Swansonized</button>\n\n  <ul>\n    <li>{{$ctrl.quote}}</li>\n  </ul>\n  <button ng-click='$ctrl.saveQuote()'>Save as Favorite</button>\n<hr>\n  <h3>See All my saved quotes</h3>\n  <ol>\n    <li ng-repeat='quote in $ctrl.favoriteQuotes'>\n      {{quote.quote}}\n    </li>\n  </ol>\n\n</section>\n";
 
 /***/ }),
 /* 98 */
