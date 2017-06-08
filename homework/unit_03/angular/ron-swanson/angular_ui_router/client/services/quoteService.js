@@ -24,4 +24,9 @@ function QuotesService($http) {
         return response;
       });
   };
+  self.deleteQuote = function(quote){
+    console.log(`/quotes/${quote._id}`);
+    return $http.delete(`/quotes/${quote._id}`);
+  };
+
 };

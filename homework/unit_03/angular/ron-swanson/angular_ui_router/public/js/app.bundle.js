@@ -5150,6 +5150,7 @@ function QuotesController(QuotesService) {
     vm.favoriteQuotes = [];
     vm.saveQuote = saveQuote;
     vm.getQuotes = getQuotes;
+    vm.deleteQuote = deleteQuote;
 
     // WHAT THIS CONTROLLER HAS / DOES THAT IS CONNECTED TO THE VIEW
 
@@ -5175,10 +5176,17 @@ function QuotesController(QuotesService) {
 
     function getQuotes() {
         QuotesService.getQuotes().then(function resolve(response) {
-            console.log(response);
             vm.favoriteQuotes = response.data.quotes;
         });
     };
+    function deleteQuote(quote) {
+        QuotesService.deleteQuote(quote).then(function (response) {
+            console.log(quote);
+            var index = vm.favoriteQuotes.indexOf(quote);
+            vm.favoriteQuotes.splice(index, 1);
+            getQuotes();
+        });
+    }
 };
 
 module.exports = QuotesController;
@@ -8983,6 +8991,10 @@ function QuotesService($http) {
       console.log('this is diferent than before GET');
       return response;
     });
+  };
+  self.deleteQuote = function (quote) {
+    console.log('/quotes/' + quote._id);
+    return $http.delete('/quotes/' + quote._id);
   };
 };
 
@@ -44640,7 +44652,7 @@ module.exports = "<div class=\"home\">\n  <h1>Home!!</h1>\n</div>\n";
 /* 97 */
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"quotes\">\n<!-- All your code goes inside this <section> -->\n\n  <h1>RON SWANSON QUOTE OF THE DAY</h1>\n\n<div>\n  <button ng-click='$ctrl.getQuote()'>Get Swansonized</button>\n\n  <ul>\n    <li>{{$ctrl.quote}}</li>\n  </ul>\n  <button ng-click='$ctrl.saveQuote()'>Save as Favorite</button>\n<hr>\n  <h3>See All my saved quotes</h3>\n  <ol>\n    <li ng-repeat='quote in $ctrl.favoriteQuotes'>\n      {{quote.quote}}\n    </li>\n  </ol>\n\n</section>\n";
+module.exports = "<div>\n<section id=\"quotes\">\n<!-- All your code goes inside this <section> -->\n\n  <h1>RON SWANSON QUOTE OF THE DAY</h1>\n\n\n  <button ng-click='$ctrl.getQuote()'>Get Swansonized</button>\n\n  <ul>\n    <li>{{$ctrl.quote}}</li>\n  </ul>\n  <button ng-click='$ctrl.saveQuote()'>Save as Favorite</button>\n<hr>\n  <h3>See All my saved quotes</h3>\n  <ol class='quote-list'>\n    <li ng-repeat='quote in $ctrl.favoriteQuotes'>\n      {{quote.quote}}\n       <button ng-click=\"$ctrl.deleteQuote(quote)\">X</button>\n    </li>\n  </ol>\n</div>\n</section>\n";
 
 /***/ }),
 /* 98 */

@@ -26,4 +26,15 @@ router.post('/', function(request, response) {
    }
     response.json({quote: quote});
 });
+//DELETE
+router.delete('/:id', function(request, response) {
+  var id = request.params.id;
+
+  Quote.remove({_id: id}, function(error) {
+    if(error) response.json({message: 'Could not delete quote b/c:' + error});
+
+    response.json({message: 'quote successfully deleted'});
+  })
+});
+
 });

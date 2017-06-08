@@ -18,6 +18,7 @@ function CriminalsNewController($state, CriminalsService) {
 				$state.go('criminalsShow', { criminalId: id });
 			});
 	}
+	
 }
 
 module.exports = CriminalsNewController;

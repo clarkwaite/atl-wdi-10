@@ -9,6 +9,7 @@ function QuotesController(QuotesService) {
     vm.favoriteQuotes = [];
     vm.saveQuote = saveQuote;
     vm.getQuotes = getQuotes;
+    vm.deleteQuote = deleteQuote;
 
     // WHAT THIS CONTROLLER HAS / DOES THAT IS CONNECTED TO THE VIEW
 
@@ -35,11 +36,18 @@ function QuotesController(QuotesService) {
 
     function getQuotes() {
         QuotesService.getQuotes().then(function resolve(response) {
-            console.log(response);
-            vm.favoriteQuotes=response.data.quotes;
+            vm.favoriteQuotes = response.data.quotes;
         })
     };
-
+    function deleteQuote(quote) {
+        QuotesService.deleteQuote(quote)
+            .then(function (response) {
+                 console.log(quote);
+                var index = vm.favoriteQuotes.indexOf(quote);
+                vm.favoriteQuotes.splice(index, 1);
+                getQuotes();
+            });
+    }
 
 };
 
