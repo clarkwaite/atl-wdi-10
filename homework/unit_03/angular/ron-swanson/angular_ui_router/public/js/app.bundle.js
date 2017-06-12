@@ -8974,7 +8974,6 @@ angular.module('RonSwansonApp').service('QuotesService', QuotesService);
 QuotesService.$inject = ['$http'];
 
 function QuotesService($http) {
-  console.log("QuotesService ready for action!");
 
   var self = this;
 
@@ -8988,12 +8987,10 @@ function QuotesService($http) {
   };
   self.getQuotes = function () {
     return $http.get('/quotes').then(function (response) {
-      console.log('this is diferent than before GET');
       return response;
     });
   };
   self.deleteQuote = function (quote) {
-    console.log('/quotes/' + quote._id);
     return $http.delete('/quotes/' + quote._id);
   };
 };
