@@ -16,15 +16,15 @@ create table apartment(
 
 create table office(
     id serial primary key,
+    address varchar(255) not null,
     office_number number not null,
+    price integer
     floors number,
     square_feet integer,
     cubicles integer,
     bathrooms integer,
-    address varchar(255) not null,
     company varchar(255),
     occupied boolean,
-    price integer
 );
 
 create table storefront(
