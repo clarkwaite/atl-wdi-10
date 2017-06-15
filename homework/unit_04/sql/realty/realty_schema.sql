@@ -1,10 +1,11 @@
 
-drop table if exists players;
-drop table if exists teams;
+drop table if exists apartment;
+drop table if exists office;
+drop table if exists storefront;
 
 create table apartment(
     id serial primary key,
-    apartment_number number not null,
+    apartment_number integer not null,
     bedrooms varchar(255),
     bathrooms varchar(255),
     address varchar(255) not null,
@@ -17,9 +18,9 @@ create table apartment(
 create table office(
     id serial primary key,
     address varchar(255) not null,
-    office_number number not null,
-    price integer
-    floors number,
+    office_number integer not null,
+    price integer,
+    floors integer,
     square_feet integer,
     cubicles integer,
     bathrooms integer,
@@ -31,7 +32,7 @@ create table storefront(
     id serial primary key,
     address varchar(255) not null,
     occupied boolean,
-    price integer
+    price integer,
     kitchen boolean,
     square_feet integer,
     owner varchar(255),
