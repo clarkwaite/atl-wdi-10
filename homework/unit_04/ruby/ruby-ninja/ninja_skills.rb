@@ -54,3 +54,21 @@ puts e
 d = e 
 puts d
 
+# Challenge 4: Strings
+
+# Create a variable christine and set it equal to the string "Hi, I'm Christine"
+# Create a variable likesTo and set it equal to the String "long walks on the beach, kinda."
+# Using string interpolation and the variables tims and likesTo puts the following string to the terminal: "Hi, I'm Christine and I like long walks on the beach, kinda."
+# Create a variable g and set it equal to the string "2"
+# Create a variable gToNumber and set it equal to the Integer 2
+# puts the value of g + gToNumber in the terminal. What happens? How can you fix this?
+# 🎯 Commit -m "4. String skills "
+
+christine = "Hi, I'm Christine"
+likes_to = "long walks on the beach, kinda."
+tims = "#{christine} and I like #{likes_to}"
+puts tims
+g = "2"
+g_to_number = 2
+puts g + g_to_number
+puts g.to_i + g_to_number
