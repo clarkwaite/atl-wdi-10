@@ -47,4 +47,10 @@ puts nil.class
 # puts the value of d to the terminal
 # 🎯 Commit -m "3. Integers Skills"
 
+d = 15
+puts d
+e = 5.5
+puts e
+d = e 
+puts d
 
