@@ -100,3 +100,25 @@ puts "It's great to meet you #{name}, I hope you get to #{likes_to} soon!"
 end
 small_talk()
 
+# Challenge 6: Arrays
+
+# Create a variable myFirstArray and set it equal to an empty array
+# Set the variable myFirstArray to an array with five Strings and four Integers
+# Using myFirstArray puts the last value of the array to the terminal
+# Using myFirstArray puts the first value of the array to the terminal
+# Set the second value of myFirstArray to the String "Joe"
+# Set the third value of myFirstArray to the Integer 3
+# Push the String Boolean true into myFirstArray
+# Puts the class of the fourth value in myFirstArray
+# 🎯 Commit -m "6. Arrays skills"
+
+myFirstArray = []
+myFirstArray = ['one', 'two', 'three', 'four', 'five', 6, 7, 8, 9]
+puts myFirstArray.last
+puts myFirstArray.first
+myFirstArray[1] = 'Joe'
+myFirstArray[3] = 3
+myFirstArray << true
+puts myFirstArray[3].class
+
+
