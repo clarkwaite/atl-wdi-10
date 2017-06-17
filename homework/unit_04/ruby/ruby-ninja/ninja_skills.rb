@@ -176,4 +176,40 @@ end
 end
 puts double_every_other
 
+# Challenge 9: Sum of Natural Numbers
 
+# If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+# Find the sum of all the multiples of 3 or 5 below 1000 using Ruby.
+
+sum_of_natural_numbers = 0
+for i in 1..1000 do
+  if i % 3 == 0 or i % 5 == 0 
+      sum_of_natural_numbers += i 
+end
+end
+puts sum_of_natural_numbers
+
+# The Final Challenge: Prime Numbers
+
+# Write a method called check_prime? that will test whether a number is Prime. The method will return true if Prime, false if not.
+
+# Write another method called get_primes that will print all the Primes up to an arbitrary limit. For example, if you invoke your method with get_primes(100), it will print all the Prime numbers up to and including 100.
+
+# This method can call on the previous check_prime? method.
+
+# A Prime number is a number that is not evenly divisible by another number except 1 and itself.
+# To test whether a number is Prime, you only need to test as far as the square root of that number. This is advisable for optimization and testing large numbers.
+require "prime"
+
+def check_prime?(num)
+    Prime.prime?(num)
+end
+check_prime?(17)
+
+def get_primes(num)
+Prime.each(num) do |prime|
+  puts prime
+end
+end
+get_primes(100)
