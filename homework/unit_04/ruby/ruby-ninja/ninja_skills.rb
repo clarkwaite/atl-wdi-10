@@ -112,13 +112,68 @@ small_talk()
 # Puts the class of the fourth value in myFirstArray
 # 🎯 Commit -m "6. Arrays skills"
 
-myFirstArray = []
-myFirstArray = ['one', 'two', 'three', 'four', 'five', 6, 7, 8, 9]
-puts myFirstArray.last
-puts myFirstArray.first
-myFirstArray[1] = 'Joe'
-myFirstArray[3] = 3
-myFirstArray << true
-puts myFirstArray[3].class
+my_first_array = []
+my_first_array = ['one', 'two', 'three', 'four', 'five', 6, 7, 8, 9]
+puts my_first_array.last
+puts my_first_array.first
+my_first_array[1] = 'Joe'
+my_first_array[3] = 3
+my_first_array << true
+puts my_first_array[3].class
+
+# Challenge 7: Hashes
+
+# Create a variable called myFavoriteAnimals and set it equal to a Hash with five animals. The animal name as the keys and the species as the values. You must include one animal with a name of "Edgar" and the value "Donkey"
+# Change value of Edgar to be "Bear"
+# Create a variable favoriteMovie and set it equal to a new, empty Hash.
+# Edit the favoriteMovie hash and add a movie key with a value of your choosing.
+# 🎯 Commit -m "7. Hashes skills"
+
+my_favorite_animals = {
+edgar: 'donkey',
+ziggy: 'dog',
+dumbo: 'elephant',
+horse: 'horse',
+stripes: 'zebra'
+}
+puts my_favorite_animals[:edgar] = 'Bear'
+favorite_movie = {}
+favorite_movie[:first_movie] = "A Knight's Tale"
+
+# Challenge 8: Ranges
+
+# Create a variable firstRange and set it equal to a Range from one to ten including ten.
+# Convert firstRange to an array.
+# Create a variable secondRange and set it equal to a Range from one to one thousand excluding the Number one thousand.
+# Convert secondRange to an array
+# Create a For loop that changes every value in firstRange to a String and using a p statement print those values out to the terminal
+# Create a variable x and set it equal to zero
+# Create a While loop that prints every value in secondRange while x < 50.
+# Using .each multiply every other value in firstRange by two and push those values into a new Array. Print that array to the terminal.
+# Using .map and if/else statements, iterate through firstRange and change every even value to a string. If the value is odd, don't change the value to a string.
+# 🎯 Commit -m "8. I'm a Ninja Warrior. Bow down to me."
+
+first_range = 1..10
+first_range_array = first_range.to_a
+second_range = 1...1000
+second_range.to_a
+
+for i in first_range do
+  puts i.to_s
+end
+
+x = 0
+for x in second_range do
+  break if x > 50
+  puts x
+end
+
+double_every_other = []
+first_range_array.each_with_index do |number, index|
+if index.even?
+  double_every_other << (number * 2)
+end
+end
+puts double_every_other
 
 
